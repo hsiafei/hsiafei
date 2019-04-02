@@ -1,6 +1,11 @@
-/.idea/
-composer.lock
-composer.phar
-/tests/Private
-*.iml
-vendor/
+.DS_Store
+node_modules
+npm-debug.log
+yarn-error.log
+lerna-debug.log
+coverage
+jest-report
+
+/packages/*/lib/
+/packages/*/coverage/
+/packages/*/node_modules/

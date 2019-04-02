@@ -1,11 +1,25 @@
-language: php
-php:
-  - '5.5'
-  - '5.6'
-  - '7.0'
-  - '7.1'
-  - '7.2'
+language: node_js
+
+node_js:
+  - "10"
+  - "8"
+  - "6"
+
+cache:
+  yarn: true
+  directories:
+    - "node_modules"
+
 install:
-  - composer update
-script: make check
-sudo: false
+  - yarn
+  - npm run bootstrap
+  - yarn global add codecov
+
+script:
+  - npm run lint
+  - npm run typecheck
+  - npm run testonly -- --coverage && codecov
+
+notifications:
+  email:
+    on_success: never
